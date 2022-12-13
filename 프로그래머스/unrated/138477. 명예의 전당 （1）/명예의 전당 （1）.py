@@ -3,16 +3,11 @@ def solution(k, score):
     prize = []
     
     for s in score:
-        if len(prize) < k:
-            prize.append(s)
-            answer.append(min(prize))
-            continue
-            
-        if min(prize) < s:
+        
+        prize.append(s)
+        
+        if len(prize) > k:
             prize.remove(min(prize))
-            prize.append(s)
-            answer.append(min(prize))
-            continue
             
         answer.append(min(prize))
     

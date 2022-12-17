@@ -1,9 +1,4 @@
 def solution(a, b):
 
-    if a == b:
-        return a
-    elif a > b:
-        return ( a * (a+1) / 2 ) - ( b * (b-1) / 2 )
-    else:
-        return ( b * (b+1) / 2 ) - ( a * (a-1) / 2 )
+    return sum(range(a, b + 1)) if a <= b else sum(range(b, a + 1))
         

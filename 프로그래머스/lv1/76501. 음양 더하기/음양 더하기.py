@@ -1,6 +1,3 @@
 def solution(absolutes, signs):
-    answer = 0
-    for i in range(len(signs)):
-        answer += absolutes[i] * (-1 if signs[i] == False else 1)
 
-    return answer
+    return sum(a if signs else -a for a, signs in zip(absolutes, signs))

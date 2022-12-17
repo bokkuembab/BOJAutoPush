@@ -1,9 +1,9 @@
 def solution(arr):
     answer = []
-    answer.append(arr[0])
     
-    for n in arr[1:]:
-        if n != answer[-1]:
-            answer.append(n)
+    for n in arr:
+        if [n] == answer[-1:]:
+            continue
+        answer.append(n)
     
     return answer

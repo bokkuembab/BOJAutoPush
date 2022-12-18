@@ -1,12 +1,11 @@
 def solution(s, n):
-    answer = ''
+    s = list(s)
+
     for i in range(len(s)):
-        if s[i] == ' ':
-            answer += s[i]
-            continue
         
         if s[i].isupper():
-            answer += chr( ord('A') + ((ord(s[i]) + n) - ord('A') ) % 26 )
+            s[i] = chr( ord('A') + ((ord(s[i]) + n) - ord('A') ) % 26 )
         elif s[i].islower():
-            answer += chr( ord('a') + ((ord(s[i]) + n) - ord('a') ) % 26 )
-    return answer
+            s[i] = chr( ord('a') + ((ord(s[i]) + n) - ord('a') ) % 26 )
+            
+    return ''.join(s)

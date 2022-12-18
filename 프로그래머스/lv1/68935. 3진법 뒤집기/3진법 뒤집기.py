@@ -1,10 +1,8 @@
 def solution(n):
-    n3 = ''
+    ans = ''
     
     while n > 0:
-        n, mod = divmod(n, 3)
-        n3 += str(mod)
+        ans += str(n % 3)
+        n = n //3
     
-    n3 = n3[::-1]
-    
-    return sum((3 ** i) * int(n3[i]) for i in range(len(n3)))
+    return int(ans, 3)

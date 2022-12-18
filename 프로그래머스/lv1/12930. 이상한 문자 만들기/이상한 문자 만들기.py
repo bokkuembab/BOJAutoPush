@@ -3,7 +3,7 @@ def solution(s):
     
     for word in s.split(' '):
         for i in range(len(word)):
-            answer += (word[i].upper() if i % 2 == 0 else word[i].lower())
+            answer += (word[i].lower() if i % 2 else word[i].upper())
         answer += ' '
     
     return answer[:-1]

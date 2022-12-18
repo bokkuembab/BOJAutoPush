@@ -1,8 +1,9 @@
 def solution(sizes):
-    ans = [0, 0]
-    for n in sizes:
-        n.sort()
-        print('n', n)
-        ans = ( max(ans[0], n[0]), max(ans[1], n[1]) )
+    row, col = 0, 0
+    
+    for a, b in sizes:
+        if a > b:
+            a, b = b, a
+        row, col = max(row, a), max(col, b)
 
-    return ans[0] * ans[1]
+    return row * col

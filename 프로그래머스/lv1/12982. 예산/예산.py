@@ -4,7 +4,8 @@ def solution(d, budget):
     
     for i in range(len(d)):
         budget -= d[i]
-        if budget >= 0:
-            ans += 1
+        if budget < 0:
+            break
+        ans += 1
         
     return ans

@@ -2,8 +2,8 @@ def solution(d, budget):
     ans = 0
     d.sort()
     
-    for i in range(len(d)):
-        budget -= d[i]
+    for n in d:
+        budget -= n
         if budget < 0:
             break
         ans += 1

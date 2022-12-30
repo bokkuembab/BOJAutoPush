@@ -4,6 +4,6 @@ def solution(food):
     for i in range(len(food)):
         answer += '%d'%i * (food[i] // 2)
         
-    answer = answer + '0' + ''.join(sorted(answer, reverse=True))
+    answer = answer + '0' + answer[::-1]
     
     return answer

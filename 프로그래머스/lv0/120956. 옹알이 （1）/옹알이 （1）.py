@@ -1,8 +1,12 @@
 def solution(babbling):
     answer = 0
+    cando = ['aya', 'ye', 'woo', 'ma']
     
     for b in babbling:
-        b = b.replace('aya', '-').replace('ye', '-').replace('woo', '-').replace('ma', '-').replace('-', '')
+        for c in cando:
+            b = b.replace(c, '-')
+        b = b.replace('-', '')
+        
         if not b:
             answer += 1
     

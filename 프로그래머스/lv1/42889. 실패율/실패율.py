@@ -2,17 +2,22 @@ from collections import Counter
 
 def solution(N, stages):
     
-    cnt = dict()
+    ans = []
     rest = len(stages)
+    fail = []
+    trying = [0] * (N + 2)
+    
+    for s in stages:
+        trying[s] += 1
     
     for i in range(1, N + 1):
-        try_men = stages.count(i)
         if rest != 0:
-            cnt[i] = try_men / rest
-            rest -= try_men
+            fail.append((i, trying[i] / rest))
+            rest -= trying[i]
         else:
-            cnt[i] = 0
+            fail.append((i, 0))
             
-    cnt = sorted(cnt, reverse=True, key = lambda k: cnt[k])
+    for item in sorted(fail, reverse=True, key=lambda k: k[1]):
+        ans.append(item[0])
     
-    return cnt
+    return ans

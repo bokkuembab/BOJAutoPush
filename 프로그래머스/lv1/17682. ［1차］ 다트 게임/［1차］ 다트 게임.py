@@ -1,7 +1,4 @@
 def solution(dartResult):
-    # 게임은 3번, 0~10점
-    # S, D, T: 1, 2, 3 제곱
-    # *스타상 / #아차상 : 해당 점수, 바로 전 점수 2배 / 해당 점수 마이너스
     
     ans = []
     scores = [str(i) for i in range(0, 10)]

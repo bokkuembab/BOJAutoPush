@@ -4,13 +4,12 @@
 
 def solution(n):
     
-    bigger = n + 1
     num1 = bin(n).count('1')
     
-    while bigger > 0:
-        if bin(bigger).count('1') == num1:
+    while True:
+        n += 1
+        
+        if bin(n).count('1') == num1:
             break
-        else:
-            bigger += 1
     
-    return bigger
+    return n

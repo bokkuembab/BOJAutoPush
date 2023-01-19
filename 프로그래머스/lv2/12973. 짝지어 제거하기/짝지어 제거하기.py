@@ -1,13 +1,15 @@
 def solution(s):
     ans = []
+    s = list(s)
     
-    for ch in s:
+    while s:
+        tmp = s.pop()
         if ans:
-            if ans[-1] == ch:
+            if ans[-1] == tmp:
                 ans.pop()
             else:
-                ans.append(ch)
+                ans.append(tmp)
         else:
-            ans.append(ch)
+            ans.append(tmp)
 
     return 1 if len(ans) == 0 else 0

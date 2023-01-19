@@ -1,17 +1,13 @@
-from collections import Counter
-
 def solution(s):
     ans = []
-    s = list(s)
     
-    while s:
-        tmp = s.pop()
+    for ch in s:
         if ans:
-            if ans[-1] == tmp:
+            if ans[-1] == ch:
                 ans.pop()
             else:
-                ans.append(tmp)
+                ans.append(ch)
         else:
-            ans.append(tmp)
+            ans.append(ch)
 
     return 1 if len(ans) == 0 else 0

@@ -2,7 +2,6 @@
 # query: 개발팀이 궁금해하는 문의조건 (and로 구분)
 
 from itertools import combinations
-from bisect import bisect_left
 
 def solution(info, query):
     
@@ -38,13 +37,23 @@ def solution(info, query):
         while '-' in msg:
             msg.remove('-')
             
-        msg_key = ''.join(msg[:-1])
-        msg_val = int(msg[-1])
+        msg_key = ''.join(msg[:-1])    # 조합
+        msg_val = int(msg[-1])     # 점수
         
-        if msg_key in info_dict:
-            score = info_dict[msg_key]
+        if msg_key in info_dict:    # 해당 조합이 info_dict에 있다면
             
-            loc = bisect_left(score, msg_val)
-            ans[q] += len(score) - loc
+            # 점수가 큰 value가 존재하는지 확인
+            # 탐색 시간을 줄이기 위해 이진 탐색 사용
+            score = info_dict[msg_key]
+            l, r = 0, len(score)
+            
+            while l < r:
+                mid = (l + r) // 2
+                if score[mid] >= msg_val:
+                    r = mid
+                else:
+                    l = mid + 1
+            
+            ans[q] += len(score) - l
     
     return ans

@@ -26,9 +26,9 @@ print(dist[end])     # 최단 이동 횟수 출력
 
 # 경로 타고 넣어주기
 i = end
-res = deque()
+res = []
 while i != start:
-    res.appendleft(i)
+    res.append(i)
     i = path[i]
-res.appendleft(start)
-print(*res)
+res.append(start)
+print(*res[::-1])    # 경로 거꾸로 출력

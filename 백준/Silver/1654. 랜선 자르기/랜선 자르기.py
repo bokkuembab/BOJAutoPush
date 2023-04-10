@@ -7,7 +7,7 @@ lans = []
 for _ in range(got):
     lans.append(int(input()))
 
-left, right = 0, max(lans) + 1
+left, right = 1, max(lans) + 1
 while left < right:
     mid = (left + right) // 2   # 자르는 단위
     
@@ -15,9 +15,9 @@ while left < right:
     for l in lans:
         nums += l // mid    # 단위로 잘랐을 때의 개수
         
-    if nums < target:    # 단위가 너무 크면
-        right = mid
+    if nums < target:    # 개수가 너무 적으면 (단위가 너무 크면)
+        right = mid  
     else:    # 단위가 너무 작으면
         left = mid + 1
         
-print(right - 1)
+print(left - 1)

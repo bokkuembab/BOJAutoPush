@@ -1,0 +1,8 @@
+-- 코드를 입력하세요
+# BOOK 테이블, 2021년 출판, '인문' 카테고리
+# 도서 ID, 출판일 출력
+# 출판일 기준 오름차순 정렬
+SELECT BOOK_ID, DATE_FORMAT(PUBLISHED_DATE, '%Y-%m-%d') PUBLISHED_DATE
+FROM BOOK
+WHERE YEAR(PUBLISHED_DATE) = 2021 AND CATEGORY = '인문'
+ORDER BY PUBLISHED_DATE ASC;

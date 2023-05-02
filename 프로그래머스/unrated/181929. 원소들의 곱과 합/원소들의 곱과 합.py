@@ -1,4 +1,8 @@
 def solution(num_list):
-    ans = 1
-    for n in num_list: ans *= n
-    return 1 if ans < sum(num_list) ** 2 else 0
+    
+    c1 = eval('*'.join([str(n) for n in  num_list]))
+    c2 = sum(num_list) ** 2
+    
+    if c1 < c2: return 1
+
+    return 0

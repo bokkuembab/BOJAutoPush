@@ -1,7 +1,5 @@
 def solution(n):
-    answer = 0
     if not n % 2:
-        answer = sum([n ** 2 if not n % 2 else 0 for n in range(1, n + 1)])
+        return sum(i ** 2 for i in range(2, n + 1, 2))
     else:
-        answer = sum([n if n % 2 else 0 for n in range(1, n + 1)])
-    return answer
+        return sum(i for i in range(1, n + 1, 2))

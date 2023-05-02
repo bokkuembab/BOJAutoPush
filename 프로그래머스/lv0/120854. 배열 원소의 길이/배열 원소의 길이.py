@@ -1,2 +1,2 @@
 def solution(strlist):
-    return [len(s) for s in strlist]
+    return list(map(len, strlist))

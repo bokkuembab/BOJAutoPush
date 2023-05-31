@@ -26,7 +26,8 @@ def binary_search(array, number):    # array에서 number를 찾음
             start = mid + 1
         else:
             end = mid - 1
-            
+    
+    cards_dict[number] = 0        
     return 0
             
 for c in checks:

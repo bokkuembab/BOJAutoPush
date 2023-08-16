@@ -14,8 +14,8 @@ def solution(numbers, target):
             return 0
         
         # 모든 경우의 수(+, -) 탐색
-        make_target(now_idx + 1, now_sum + numbers[now_idx])
-        make_target(now_idx + 1, now_sum - numbers[now_idx])
+        for oper in (numbers[now_idx], - numbers[now_idx]):
+            make_target(now_idx + 1, now_sum + oper)
     
     make_target(0, 0)
     

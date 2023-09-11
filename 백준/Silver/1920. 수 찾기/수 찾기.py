@@ -1,27 +1,29 @@
 import sys
 input = sys.stdin.readline
 
-# mlist가 nlist 안에 존재하는지
-n = int(input())
+# 정수의 개수, 리스트
+n = int(input())    
 nlist = list(map(int, input().split()))
-m = int(input())
-mlist = list(map(int, input().split()))
+# 찾을 정수의 개수, 리스트
+t = int(input())    
+targets = list(map(int, input().split()))
 
-nlist.sort()
+nlist.sort()    # 수열 정렬
 
-for i in mlist:
-    left, right = 0, n - 1
-    check = 0
+# 이분탐색 함수
+def find_n(number):
+    left, right = 0, n
     
-    while left <= right:
+    while left < right:
         mid = (left + right) // 2
-        
-        if nlist[mid] == i:
-            check = 1
-            break
-        if nlist[mid] < i:
+        if nlist[mid] == number:    # 답을 찾으면, 1 출력
+            return 1
+        elif nlist[mid] < number:
             left = mid + 1
         else:
-            right = mid - 1
-            
-    print(check)
+            right = mid
+
+    return 0    # 끝까지 못 찾으면, 0 출력
+
+for i in targets:    # 전체 정수들 순서대로 찾기
+    print(find_n(i))
